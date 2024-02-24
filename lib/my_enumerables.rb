@@ -13,7 +13,12 @@ module Enumerable
     true
   end
 
-  
+  def my_any?
+    self.my_each do |elem|
+      return true if yield(elem)
+    end
+    false
+  end
   
 end
 
