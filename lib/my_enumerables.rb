@@ -6,6 +6,14 @@ module Enumerable
     nil
   end
 
+  def my_all?
+    self.my_each do |elem|
+       return false if !yield(elem)
+    end
+    true
+  end
+
+  
   
 end
 
