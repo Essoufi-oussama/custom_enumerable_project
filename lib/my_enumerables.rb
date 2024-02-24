@@ -19,6 +19,21 @@ module Enumerable
     end
     false
   end
+
+  def my_count
+    if block_given?
+      count = 0
+      self.my_each do |elem|
+        count += 1 if yield(elem)
+      end
+      return count
+    end
+    count = 0
+    self.my_each do |elem|
+      count += 1
+    end
+    count
+  end
   
 end
 
