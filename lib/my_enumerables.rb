@@ -58,6 +58,21 @@ module Enumerable
     end
     array
   end
+
+  def my_none?
+    self.my_each do |elem|
+      return false if yield(elem)
+    end
+    return true
+  end
+
+  def my_select
+    array = []
+    self.my_each do |elem|
+      array << elem if yield(elem)
+    end
+    array
+  end
 end
 
 # You will first have to define my_each
