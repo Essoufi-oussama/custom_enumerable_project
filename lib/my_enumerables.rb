@@ -1,5 +1,12 @@
 module Enumerable
-  # Your code goes here
+  def my_find
+    self.each do |elem|
+      return elem if yield(elem)
+    end
+    nil
+  end
+
+  
 end
 
 # You will first have to define my_each
@@ -8,4 +15,9 @@ end
 # to this method
 class Array
   # Define my_each here
+  def my_each
+    for i in self
+      yield(i)
+    end
+  end
 end
