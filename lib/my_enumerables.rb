@@ -1,6 +1,6 @@
 module Enumerable
   def my_find
-    self.each do |elem|
+    self.my_each do |elem|
       return elem if yield(elem)
     end
     nil
@@ -41,6 +41,22 @@ module Enumerable
       yield(elem, index)
       index += 1
     end
+  end
+
+  def my_inject(init)
+    result = init
+    self.my_each do |elem|
+      result = yield(result, elem)
+    end
+    result
+  end
+
+  def my_map
+    array = []
+    self.my_each do |elem|
+      array << yield(elem)
+    end
+    array
   end
 end
 
